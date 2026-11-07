@@ -105,9 +105,8 @@ PulseVisualMetronomeAudioProcessorEditor::PulseVisualMetronomeAudioProcessorEdit
     addAndMakeVisible(resetButton);
     fullScreenButton.onClick = [this]
     {
-        if (auto* w = getTopLevelComponent())
+        if (auto* w = dynamic_cast<juce::ResizableWindow*>(getTopLevelComponent()))
         {
-            if (!fullScreen) originalBounds = w->getBounds();
             fullScreen = !fullScreen;
             w->setFullScreen(fullScreen);
         }
